@@ -22,5 +22,11 @@ describe('Pet', function(){
     expect(tamagotchi.food).toEqual(9);
   });
 
+  it('should test whether food level can be set to a specific value', function(){
+    tamagotchi.replenishFood();
+    // jasmine.clock().tick(10000);
+    expect(tamagotchi.food).toEqual(10);
+  });
+
 
 });

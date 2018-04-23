@@ -31,6 +31,11 @@ export class Pet {
     }, 10000);
   }
 
+  replenishFood() {
+    this.food = 10;
+    return this.food;
+  }
+
 
 
 
