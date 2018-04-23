@@ -7,7 +7,25 @@ export class Pet {
     this.poop = poop;
   }
 
-  subtractOverTimeFood() {
+  subtractFoodOverTime() {
+    setInterval(() => {
+      this.food --;
+    }, 10000);
+  }
+
+  subtractPlayOverTime() {
+    setInterval(() => {
+      this.food --;
+    }, 10000);
+  }
+
+  subtractSleepOverTime() {
+    setInterval(() => {
+      this.food --;
+    }, 10000);
+  }
+
+  subtractPoopOverTime() {
     setInterval(() => {
       this.food --;
     }, 10000);

@@ -1,6 +1,26 @@
-describe('Test', function(){
+import { Pet } from './../src/scripts.js'
 
-  it('should test whether two numbers are equal', function(){
-    expect(1).not.toEqual(3);
+describe('Pet', function(){
+  let tamagotchi = new Pet(10, 10, 10, 10);
+
+  beforeEach(function(){
+    jasmine.clock().install();
+    tamagotchi.subtractFoodOverTime();
   });
+
+  afterEach(function(){
+    jasmine.clock().uninstall();
+  });
+
+  it('should test whether food level is full', function(){
+    expect(tamagotchi.food).toEqual(10);
+  });
+
+  it('should test whether food level is 9 after 10000 milliseconds', function(){
+
+    jasmine.clock().tick(10000);
+    expect(tamagotchi.food).toEqual(9);
+  });
+
+
 });
