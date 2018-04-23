@@ -5,6 +5,7 @@ export class Pet {
     this.play = play;
     this.sleep = sleep;
     this.poop = poop;
+    this.status = "alive";
   }
 
   subtractFoodOverTime() {
@@ -15,19 +16,19 @@ export class Pet {
 
   subtractPlayOverTime() {
     setInterval(() => {
-      this.food --;
+      this.play --;
     }, 10000);
   }
 
   subtractSleepOverTime() {
     setInterval(() => {
-      this.food --;
+      this.sleep --;
     }, 10000);
   }
 
   subtractPoopOverTime() {
     setInterval(() => {
-      this.food --;
+      this.poop --;
     }, 10000);
   }
 
@@ -37,24 +38,30 @@ export class Pet {
   }
 
   replenishPlay() {
-    this.food = 10;
-    return this.food;
+    this.play = 10;
+    return this.play;
   }
 
   replenishSleep() {
-    this.food = 10;
-    return this.food;
+    this.sleep = 10;
+    return this.sleep;
   }
 
   cleanPoop() {
-    this.food = 10;
-    return this.food;
+    this.poop = 10;
+    return this.poop;
   }
 
   killagatchi() {
     if (this.food <= 0 || this.play  <= 0|| this.poop <= 0 || this.sleep <= 0){
-      alert("Your pet is dead. You monster.");
-      return true;
+      this.status = "dead";
+      return this.status;
+    }
+  }
+
+  isItAlive() {
+    if (this.status === "dead"){
+      alert("Your pet has died. You monster.");
     }
   }
 

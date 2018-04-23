@@ -28,11 +28,17 @@ describe('Pet', function(){
     expect(tamagotchi.food).toEqual(10);
   });
 
-  it('should test whether food level can be set to a specific value', function(){
+  it('should test whether any of the pets levels have reached zero', function(){
     let tamagotchi2 = new Pet(0, 10, 10, 10);
     let dead = tamagotchi2.killagatchi();
     // jasmine.clock().tick(10000);
-    expect(dead).toEqual(true);
+    expect(tamagotchi2.status).toEqual("dead");
+  });
+  it('should test whether the pets status is alive', function(){
+    let tamagotchi3 = new Pet(10, 10, 10, 10);
+
+    // jasmine.clock().tick(10000);
+    expect(tamagotchi3.status).toEqual("alive");
   });
 
 
