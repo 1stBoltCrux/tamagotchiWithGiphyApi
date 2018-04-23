@@ -6,11 +6,16 @@ export class Pet {
     this.sleep = sleep;
     this.poop = poop;
     this.status = "alive";
+    this.warnFood = "";
+    this.warnPlay = "";
+    this.warnSleep = "";
+    this.warnPoop = "";
   }
 
   subtractFoodOverTime() {
     setInterval(() => {
       this.food --;
+      return this.food;
     }, 10000);
   }
 
@@ -61,14 +66,53 @@ export class Pet {
 
   isItAlive() {
     if (this.status === "dead"){
-      alert("Your pet has died. You monster.");
+    let gameOver = "Your pet has died. You monster.";
+    return gameOver;
     }
   }
+  foodCheck() {
+    setInterval(() => {
+      if (this.food < 4) {
+        this.warnFood = "Your current food level is low!";
+      } else {
+        this.warnFood = "something happened!";
+      }
+    }, 10000);
 
+  }
 
+  sleepCheck() {
 
+    setInterval(() => {
+      if (this.sleep < 4) {
+        this.warnSleep = "Your current sleep level is low!";
+      } else {
+        this.warnSleep = "somthing happened!";
+      }
+    }, 10000);
+  }
 
+  poopCheck() {
 
+    setInterval(() => {
+      if (this.poop < 4) {
+        this.warnPoop = "Your current cleanliness level is low!";
+      } else {
+        this.warnPoop = "somthing happened!";
+      }
+    }, 10000);
+  }
+
+  playCheck() {
+
+    setInterval(() => {
+      if (this.play < 4) {
+        this.warnPlay = "Your current happiness level is low!";
+      } else {
+        this.warnPlay = "somthing happened!";
+      }
+    }, 10000);
+  }
 }
 
 
