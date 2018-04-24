@@ -30,14 +30,15 @@ export class Pet {
       this.sleep --;
     }, 10000);
   }
-
-  subtractPoopOverTime() {
+                               //Write this code!!! VVVVVVVVVVVVVVVVVVV
+  subtractPoopOverTime() {    //add poop to the screen in certain spots.
+                             //will hide image files and show per certain second hit.
     setInterval(() => {
       this.poop --;
     }, 10000);
   }
 
-  replenishFood() {
+  replenishFood() {     //add animation or gif to whatever image or sprite we use
     this.food = 10;
     return this.food;
   }
@@ -57,20 +58,20 @@ export class Pet {
     return this.poop;
   }
 
-  killagatchi() {
+  killagatchi() {        // change so that it has to be mutiple 0 if not all to get a death.
     if (this.food <= 0 || this.play  <= 0|| this.poop <= 0 || this.sleep <= 0){
       this.status = "dead";
       return this.status;
     }
   }
 
-  isItAlive() {
+  isItAlive() {          //change so that it does an animation every few seconds or so.
     if (this.status === "dead"){
     let gameOver = "Your pet has died. You monster.";
     return gameOver;
     }
   }
-  foodCheck() {
+  foodCheck() {         // add (in front-end?) img or sprite to look sad for low levels.
     setInterval(() => {
       if (this.food < 4) {
         this.warnFood = "Your current food level is low!";
