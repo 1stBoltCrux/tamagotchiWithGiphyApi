@@ -5,13 +5,11 @@ import './styles.css';
 
 
 $(document).ready(function() {
-  $('#weatherLocation').click(function() {
-    let city = $('#location').val();
-    $('#location').val("");
-    $.get(`https://api.giphy.com/v1/gifs/random?api_key=${process.env.API_KEY}`).then(function(response) {
-      $('.showHumidity').append("<img src=" + `${response.data.images.source.url}` + ">");
+    $.get(`https://api.giphy.com/v1/gifs/7QRtWZrfoDiFy?api_key=${process.env.API_KEY}`).then(function(response) {
+      console.log(response);
+      $('#picture').append("<img src=" + `${response.data.images.original_still.url}` + ">");
     }).fail(function(error){
       $('#errors').text("There was an error processing your request. Please try again.");
     });
-  });
+
 });

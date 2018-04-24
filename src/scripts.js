@@ -10,11 +10,12 @@ export class Pet {
     this.warnPlay = "";
     this.warnSleep = "";
     this.warnPoop = "";
+    this.gameOver = "";
   }
 
   subtractFoodOverTime() {
     setInterval(() => {
-      this.food --;
+      this.food--;
       return this.food;
     }, 10000);
   }
@@ -61,16 +62,21 @@ export class Pet {
   killagatchi() {        // change so that it has to be mutiple 0 if not all to get a death.
     if (this.food <= 0 || this.play  <= 0|| this.poop <= 0 || this.sleep <= 0){
       this.status = "dead";
-      return this.status;
     }
+    console.log(this.status);
+    }
+
+  isItAlive() {
+    setInterval(() => {
+      console.log(this.status==="dead");
+      if (this.status === "dead") {
+        this.gameOver = "Your pet has died. You monster.";
+      } else {
+        this.gameOver = "something failed.";
+      }
+    }, 10000);
   }
 
-  isItAlive() {          //change so that it does an animation every few seconds or so.
-    if (this.status === "dead"){
-    let gameOver = "Your pet has died. You monster.";
-    return gameOver;
-    }
-  }
   foodCheck() {         // add (in front-end?) img or sprite to look sad for low levels.
     setInterval(() => {
       if (this.food < 4) {
